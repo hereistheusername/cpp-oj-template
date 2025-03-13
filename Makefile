@@ -117,7 +117,7 @@ mkex: | $(INPUTDIR) $(OUTPUTDIR)
 test: mkex diff
 
 diff:
-	@make run | diff --ignore-blank-lines --side-by-side $(OUTPUTDIR)/$(EXPECTATION) - || true
+	@make -s run | diff --ignore-blank-lines --side-by-side $(OUTPUTDIR)/$(EXPECTATION) - || true
 	@echo "Diff done."
 
 run: $(TARGET)

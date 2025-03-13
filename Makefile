@@ -85,7 +85,7 @@ mkcompjson: $(BUILDDIR)
 	@echo "Generating build/compile_commands.json ..."
 	@echo "[\n{"																												 > $(BUILDDIR)/compile_commands.json
 	@echo '  "directory": "$(realpath $(BUILDDIR))",'																			>> $(BUILDDIR)/compile_commands.json
-	@echo '  "command": "$(realpath $(CXX)) $(CXXFLAGS) -o $(realpath $(BUILDDIR))/$(TARGET)$(OBJEXT) -c $(realpath $(SRCS))",'	>> $(BUILDDIR)/compile_commands.json
+	@echo '  "command": "$(shell which $(CXX)) $(CXXFLAGS) -o $(realpath $(BUILDDIR))/$(TARGET)$(OBJEXT) -c $(realpath $(SRCS))",'	>> $(BUILDDIR)/compile_commands.json
 	@echo '  "file": "$(realpath $(SRCS))",'																					>> $(BUILDDIR)/compile_commands.json
 	@echo '  "output": "$(realpath $(BUILDDIR))/$(TARGET)$(SRCEXT)"'															>> $(BUILDDIR)/compile_commands.json
 	@echo "}\n]"																												>> $(BUILDDIR)/compile_commands.json
